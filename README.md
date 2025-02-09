@@ -167,10 +167,10 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * In the Blocks editor: added a new kind of variable set block that sets the variable and also returns the new value.
 * Changes the way that camera controls behave for a SwitchableCamera. Now, each method (such as getExposure, getMinExposure, getMaxExposure, setExposure for ExposureControl) acts on the currently active camera.
 * Adds support for the REV USB PS4 Compatible Gamepad (REV-31-2983)
-* Adds ConceptAprilTagMultiPortal OpMode
+* Adds util.ConceptAprilTagMultiPortal OpMode
 * Adds support for OctoQuad Quadrature Encoder & Pulse Width Interface Module
 * Adds the ExportAprilTagLibraryToBlocks annotation that indicates that a static method that returns an AprilTagLibrary is exported to the Blocks programming environment. The corresponding block will appear in the Blocks toolbox along with the built-in tag libraries.
-* Adds Blocks OpMode ConceptAprilTagOptimizeExposure.
+* Adds Blocks OpMode util.ConceptAprilTagOptimizeExposure.
 * Adds support for the SparkFun Optical Tracking Odometry sensor.
 
 ### Bug Fixes
@@ -244,7 +244,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * Blocks teams can now perform webcam calibration.
     * Added a Block for System.currentTimeMillis (under Utilities/Time)
     * Added a Block for VisionPortal.saveNextFrameRaw (under Vision/VisionPortal)
-    * Added a new sample Blocks OpMode called UtilityCameraFrameCapture.
+    * Added a new sample Blocks OpMode called util.UtilityCameraFrameCapture.
 * The RobotDriveByGyro sample has been updated to use the new universal IMU interface.  It now supports both IMU types.
 * Removed some error-prone ElapsedTime Blocks from the Blocks editor's toolbox. This is not a
   breaking change: old Blocks OpModes that use these Blocks will still function, both in the
@@ -322,7 +322,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * Increases maximum size of Blocks inline comments to 100 characters
 * Saves position of open Blocks comment balloons
 * Adds new AprilTag Driving samples:  RobotDriveToAprilTagTank & RobotDriveToAprilTagOmni
-* Adds Sample to illustrate optimizing camera exposure for AprilTags: ConceptAprilTagOptimizeExposure
+* Adds Sample to illustrate optimizing camera exposure for AprilTags: util.ConceptAprilTagOptimizeExposure
 
 ### Bug Fixes
 * Corrects inspection screen to report app version using the SDK version defined in the libraries instead of the version specified in `AndroidManifest.xml`. This corrects the case where the app could show matching versions numbers to the user but still state that the versions did not match.
@@ -361,7 +361,7 @@ This is a bug fix only release to address the following four issues.
   included in all older Control Hubs and Expansion Hubs, and the new alternative BHI260AP IMU.
   * You can determine which type of IMU is in your Control Hub by navigating to the Manage page of the web interface.
   * To learn how to use the new `IMU` interface, see https://ftc-docs.firstinspires.org/programming_resources/imu/imu.html. The `SensorIMU` Blocks sample was also updated to use the new `IMU` interface, and the following Java samples were added:
-    * `SensorIMUOrthogonal`
+    * `util.SensorIMUOrthogonal`
       * Use this sample if your REV Hub is mounted so that it is parallel or perpendicular to the
         bottom of your robot.
     * `SensorIMUNonOrthogonal`
