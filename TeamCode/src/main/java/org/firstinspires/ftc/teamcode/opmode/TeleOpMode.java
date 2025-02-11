@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.opmode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -52,10 +52,10 @@ public class TeleOpMode extends OpMode {
         double rightRearPower = (magnitude * cos / max) - turn;
 
         // Set motor powers with clipping to ensure they remain in the range [-1.0, 1.0]
-        leftFront.setPower(Range.clip(leftFrontPower, -1.0, 1.0));
-        rightFront.setPower(Range.clip(rightFrontPower, -1.0, 1.0));
-        leftRear.setPower(Range.clip(leftRearPower, -1.0, 1.0));
-        rightRear.setPower(Range.clip(rightRearPower, -1.0, 1.0));
+        leftFront.setPower(Range.clip(leftFrontPower, -1.0, 1.0)*0.7);
+        rightFront.setPower(Range.clip(rightFrontPower, -1.0, 1.0)*0.7);
+        leftRear.setPower(Range.clip(leftRearPower, -1.0, 1.0)*0.7);
+        rightRear.setPower(Range.clip(rightRearPower, -1.0, 1.0)*0.7);
 //        hex_motor.setPower(Range.clip(hex_up, -1.0, 1.0));
     }
 }
