@@ -128,6 +128,10 @@ public class SampleMecanumDrive extends MecanumDrive {
         List<Integer> lastTrackingEncVels = new ArrayList<>();
 
         // TODO: if desired, use setLocalizer() to change the localization method
+        leftFront.setDirection(DcMotor.Direction.FORWARD);
+        rightFront.setDirection(DcMotor.Direction.REVERSE);
+        leftRear.setDirection(DcMotor.Direction.FORWARD);
+        rightRear.setDirection(DcMotor.Direction.REVERSE);
         // setLocalizer(new StandardTrackingWheelLocalizer(hardwareMap, lastTrackingEncPositions, lastTrackingEncVels));
 
         trajectorySequenceRunner = new TrajectorySequenceRunner(
@@ -282,10 +286,10 @@ public class SampleMecanumDrive extends MecanumDrive {
 
     @Override
     public void setMotorPowers(double v, double v1, double v2, double v3) {
-        leftFront.setPower(v*0.6);
-        leftRear.setPower(v1*0.6);
-        rightRear.setPower(v2*0.6);
-        rightFront.setPower(v3*0.6);
+        leftFront.setPower(v*0.2);
+        leftRear.setPower(v1*0.2);
+        rightRear.setPower(v2*0.2);
+        rightFront.setPower(v3*0.2);
     }
 
     @Override

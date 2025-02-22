@@ -25,8 +25,8 @@ import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 import java.util.ArrayList;
 import org.firstinspires.ftc.teamcode.config.action_active;
-@Autonomous(name = "AutonomousMode_Blue", group = "Autonomous")
-public class AutonomousMode extends LinearOpMode {
+@Autonomous(name = "AutonomousMode_Red", group = "Autonomous")
+public class AutonoModeRed extends LinearOpMode {
     OpenCvCamera camera;
     AprilTagDetectionPipeline aprilTagDetectionPipeline;
 
@@ -104,7 +104,7 @@ public class AutonomousMode extends LinearOpMode {
 
                     // Tạo trajectory đến vị trí của tag
                     TrajectorySequence trajectory_1 = drive.trajectorySequenceBuilder(startPose)
-                            .lineToLinearHeading(new Pose2d(-20, 0, Math.toRadians(0))) // Di chuyển đến vị trí của xà
+                            .lineToLinearHeading(new Pose2d(20, 0, Math.toRadians(180))) // Di chuyển đến vị trí của xà
                             .build();
 
                     // Di chuyển robot theo quỹ đạo đã tạo
@@ -117,9 +117,9 @@ public class AutonomousMode extends LinearOpMode {
                             trajectory_1.end().getY(),
                             Math.toRadians(90));
                     TrajectorySequence trajectory = drive.trajectorySequenceBuilder(after_tra_1)
-                            .forward(24)
-                            .strafeRight(12)
-                            .forward(36)
+//                            .back(24)
+//                            .strafeRight(12)
+//                            .forward(36)
                             .lineToSplineHeading(new Pose2d(60, -24, Math.toRadians(90)))
                             .strafeLeft(60)
                             .strafeRight(60)
@@ -127,7 +127,7 @@ public class AutonomousMode extends LinearOpMode {
                             .strafeLeft(60)
                             .strafeRight(60)
                             .back(12)
-                            .lineToSplineHeading(new Pose2d(72,36,Math.toRadians(90)))// Di chuyển đến vị trí lấy implementr
+                            .lineToSplineHeading(new Pose2d(72,36,Math.toRadians(270)))// Di chuyển đến vị trí lấy implementr
 
                             .build();
                     drive.followTrajectorySequence(trajectory);
@@ -135,7 +135,7 @@ public class AutonomousMode extends LinearOpMode {
                         // Cập nhật lại vị trí sau tra_1
                         Pose2d after_tra = new Pose2d(trajectory.end().getX(),
                                 trajectory.end().getY(),
-                                Math.toRadians(90));
+                                Math.toRadians(270));
 
                         // Tạo quỹ đạo đi theo đường xiên
                         TrajectorySequence trajectory_2 = drive.trajectorySequenceBuilder(after_tra_1)

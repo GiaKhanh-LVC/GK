@@ -4,9 +4,11 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.har
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class MotorControlModule {
-    public DcMotorEx leftFront,rightFront,leftRear,rightRear;
+    public DcMotorEx leftFront,rightFront,leftRear,rightRear,roll_motor;
+
     public MotorControlModule() {
         leftFront = hardwareMap.get(DcMotorEx.class, "leftFront");
         leftFront.setDirection(DcMotor.Direction.FORWARD);
@@ -20,33 +22,23 @@ public class MotorControlModule {
         rightRear = hardwareMap.get(DcMotorEx.class, "rightRear");
         rightRear.setDirection(DcMotor.Direction.REVERSE);
         rightRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        roll_motor = hardwareMap.get(DcMotorEx.class, "roll_motor");
+        roll_motor.setDirection(DcMotor.Direction.FORWARD);
+        roll_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        roll_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        roll_motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
-//    // Method to configure the left front motor
-//    public void LeftFront() {
-//        leftFront = hardwareMap.get(DcMotorEx.class, "leftFront");
-//        leftFront.setDirection(DcMotor.Direction.FORWARD);
-//        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//    }
-//
-//    // Method to configure the right front motor
-//    public void RightFront() {
-//        rightFront = hardwareMap.get(DcMotorEx.class, "rightFront");
-//        rightFront.setDirection(DcMotor.Direction.REVERSE);
-//        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//    }
-//
-//    // Method to configure the left rear motor
-//    public void LeftRear() {
-//        leftRear = hardwareMap.get(DcMotorEx.class, "leftRear");
-//        leftRear.setDirection(DcMotor.Direction.FORWARD);
-//        leftRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//    }
-//
-//    // Method to configure the right rear motor
-//    public void RightRear() {
-//        rightRear = hardwareMap.get(DcMotorEx.class, "rightRear");
-//        rightRear.setDirection(DcMotor.Direction.REVERSE);
-//        rightRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//    }
+    public void m_up(){
+        int ticks=roll_motor.getCurrentPosition();
+        ticks+=448;
+        roll_motor.setTargetPosition((int)ticks);
+        roll_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+    }
+    public void m_down(){
+        int ticks=roll_motor.getCurrentPosition();
+        ticks-=448;
+        roll_motor.setTargetPosition((int)ticks);
+        roll_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);}
 
 }
